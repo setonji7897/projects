@@ -1,5 +1,5 @@
 const test1=[5,2,4,1,15,8,3];
-const test2=[16,6,10,5,6,1,4];
+const test2=[16,6,10,5,6,1,4, 19];
 function dogage_humanage (ages){
     console.log(ages);
     

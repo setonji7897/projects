@@ -62,7 +62,7 @@
 // }
 // reverseString(fish)
 
-let list=[1,3,6,91,6,25]
+let list=[1,3,6,91,6,25, 26]
 function max_number(numbers){
   let maximum
   for(number of numbers){
