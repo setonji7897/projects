@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project5</title>
+  <link rel="stylesheet" href="./style5.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Vue root element -->
+  <div id="app" style="background-color: #F5F5F5; padding:20px; border-radius:6%">
+    <h2 class="header">Todo list</h2>
+
+    <div class="add-task-container">
+      <h6 id="todo_desc">ADD NEW</h6>
+      <!-- bind input to newTask -->
+      <input type="text" v-model="newTask" placeholder="Add new todo" style="font-size: large;">
+      <button @click="addTask">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+
+    <div id="task-container" style="margin-top:30px">
+      <ul>
+        <li v-for="(task, index) in tasks" :key="index">
+          <span :style="{ textDecoration: task.done ? 'line-through' : 'none' }">
+            {{ task.text }}
+          </span>
+          <button @click="toggleDone(task)">✔</button>
+          <button @click="deleteTask(index)">🗑</button>
+          <button @click="editTask(index)">✏</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Vue script -->
+  <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          newTask: '',
+          tasks: []
+        };
+      },
+      methods: {
+        addTask() {
+          if (this.newTask.trim() === '') {
+            alert('Please enter a task');
+            return;
+          }
+          this.tasks.push({ text: this.newTask, done: false });
+          this.newTask = '';
+        },
+        toggleDone(task) {
+          task.done = !task.done;
+        },
+        deleteTask(index) {
+          this.tasks.splice(index, 1);
+        },
+        editTask(index) {
+          this.newTask = this.tasks[index].text; // load task into input
+          this.tasks.splice(index, 1);           // remove old one
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

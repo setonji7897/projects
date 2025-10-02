@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    const car=function(make, speed){
+        this.make = make
+        this.speed =speed
+    };
+    car.prototype.acceleration=function(){
+        this.speed += 10;
+        console.log(this.speed)
+    };
+    car.prototype.brake= function(){
+        this.speed-=5;
+        console.log(this.speed)
+    };
+    const bmw = new car('BMW',120);
+    const corolla=new car('corolla', 95);
+    bmw.acceleration()
+    bmw.acceleration()
+    corolla.brake()
+
+
+   </script>
+</body>
+</html>

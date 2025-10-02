@@ -1,0 +1,57 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Latto','sans-serif';
+}body{
+  background-image: url(./img/emma-swoboda-qKaioqt8mo4-unsplash.jpg) no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accordian{
+  width:65%;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 30px;
+}
+.accordian .accordian_title{
+  margin-bottom: 30px;
+  text-align: center;
+}
+.accordian .content_container .question{
+  padding: 10px 0px;
+  font-size: 22px;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+
+  position: relative;
+}
+
+.accordian .content_container .question::after{
+  content: '+';
+  position: absolute;
+  right: -5px;
+}
+.accordian .content_container .answer{
+  padding-top: 15px;
+  font-size: 22px;
+  line-height: 1.5;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.accordian .content_container .active .answer{
+  height: 150px;
+}
+.accordian .content_container .active .question{
+  font-size: 18px;
+  transition: .5s;
+}
+.accordian .content_container .active .question::after{
+  content: "-";
+  font-size: 30px;
+  transition: .5s;
+}
